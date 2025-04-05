@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>Electron Tab Browser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="browser-ui">
+        <div id="tabs-container">
+            <div id="tabs">
+                </div>
+            <button id="new-tab-button" title="New Tab">+</button>
+        </div>
+        <div id="nav-controls">
+            <button id="back-button" title="Back">◀</button>
+            <button id="forward-button" title="Forward">▶</button>
+            <button id="reload-button" title="Reload">↻</button>
+            <input type="text" id="url-input" placeholder="Enter URL and press Enter">
+            </div>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>
