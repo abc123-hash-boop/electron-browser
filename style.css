@@ -1,0 +1,161 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars on the main window */
+    background-color: #f0f0f0; /* Background for the UI area */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#browser-ui {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Prevent UI from shrinking */
+    /* Total height should match navBarHeight in main.js */
+    height: 85px;
+}
+
+#tabs-container {
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    padding: 5px 5px 0 5px; /* Padding top/sides, no bottom padding */
+    height: 40px; /* Height for the tab row */
+    box-sizing: border-box;
+    overflow-x: auto; /* Allow horizontal scrolling if many tabs */
+    border-bottom: 1px solid #bbb;
+}
+
+#tabs {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden; /* Prevent tabs themselves from wrapping */
+    height: 100%;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-right: 2px;
+    border: 1px solid #bbb;
+    border-bottom: none; /* Remove bottom border to merge with container border */
+    background-color: #eee;
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    cursor: pointer;
+    max-width: 180px; /* Limit tab width */
+    height: 100%; /* Fill tab container height */
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative; /* For loading indicator positioning */
+    font-size: 13px;
+}
+
+.tab.active {
+    background-color: #f0f0f0; /* Match UI background */
+    border-bottom: 1px solid #f0f0f0; /* Hide bottom border by matching color */
+    position: relative;
+    top: 1px; /* Slight raise to visually connect with content area */
+    z-index: 1; /* Ensure active tab border is on top */
+}
+
+.tab:hover {
+    background-color: #e5e5e5;
+}
+.tab.active:hover {
+    background-color: #f0f0f0; /* Don't change hover on active */
+}
+
+.tab-title {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+}
+.tab-loading {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #aaa;
+    border-top-color: #555;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+.tab-close-button {
+    margin-left: 8px;
+    padding: 2px 4px;
+    font-size: 12px;
+    line-height: 1;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+.tab-close-button:hover {
+    background-color: #ccc;
+}
+
+
+#new-tab-button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1;
+    height: 30px; /* Match tab height */
+    align-self: center; /* Center vertically in tabs-container */
+    border: 1px solid #bbb;
+    background-color: #eee;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#new-tab-button:hover {
+    background-color: #e5e5e5;
+}
+
+#nav-controls {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #f0f0f0; /* Same as active tab / body */
+    height: 45px; /* Height for the nav row */
+    box-sizing: border-box;
+}
+
+#nav-controls button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    min-width: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #eee;
+}
+#nav-controls button:hover {
+    background-color: #e5e5e5;
+}
+#nav-controls button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background-color: #eee;
+}
+
+
+#url-input {
+    flex-grow: 1;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
